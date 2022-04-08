@@ -1,0 +1,127 @@
+/* ALGEMEEN */
+
+body {
+    margin: 0 auto;
+}
+
+:root {
+    --orange-main: rgba(255, 136, 0, 0.808);
+    --orange-dark: rgba(255, 115, 0, 0.992);
+    --orange-light: rgba(255, 166, 0, 0.719);
+    --orange-lighter: rgb(240 173 96 / 11%);
+
+    --white: #FFF;
+    --black: #000000;
+}
+
+/* HEADER */
+.wrapper {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header img {
+    height: 100px;
+}
+
+.header button {
+    height: 50px;
+    width: 100px;
+
+    border: none;
+    border-radius: 5px;
+
+    font-family: 'Concert one', cursive;
+    font-size: 19px;
+    color: #fff;
+    background-color: var(--orange-main);
+}
+
+.header button:hover {
+    background-color: var(--orange-dark);
+}
+
+.sub_title {
+    font-family: 'Concert one', cursive;
+    font-size: 25px;
+    color: rgba(255, 136, 0, 0.808);
+
+    text-align: center;
+}
+
+/* MAIN */
+
+.addition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Permanent marker', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.answer_options {
+    display: flex;
+    justify-content: center;
+
+}
+
+/* .difficulty {
+    display: flex;
+    justify-content: center; 
+} */
+
+main {
+    background-color: var(--orange-light);
+}
+
+#opt1 {
+    border: var(--orange-main) solid 2px;
+    border-radius: 10px;
+
+    background-color: var(--white);
+    width: 100%;
+    height: 55px;
+}
+
+#opt1:hover {
+    background-color: var(--orange-main);
+    color: var(--white);
+}
+
+#opt2 {
+    border: var(--orange-main) solid 2px;
+    border-radius: 10px;
+
+    background-color: var(--white);
+    width: 100%;
+    height: 55px;
+}
+
+#opt2:hover {
+    background-color: var(--orange-main);
+    color: var(--white);
+}
+
+#opt3 {
+    border: var(--orange-main) solid 2px;
+    border-radius: 10px;
+
+    background-color: var(--white);
+    width: 100%;
+    height: 55px;
+}
+
+#opt3:hover {
+    background-color: var(--orange-main);
+    color: var(--white);
+}
