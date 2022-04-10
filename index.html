@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eindwerkstuk Dynamic Web</title>
-    <link rel="stylesheet" href="home/home.css">
+    <title>Math4You</title>
+    <link rel="stylesheet" href="home.css">
     <link rel="shortcut icon" href="assets/img/Screenshot 2022-03-02 at 12.04.48.png" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,11 +20,9 @@
 
 <body>
     <header>
-        <div class="wrapper">
-            <div class="header">
-                <img src="assets/img/Screenshot 2022-03-02 at 12.04.48.png" alt="logo frog Math4You">
-                <button class="login-button">Login</button>
-            </div>
+        <div class="header">
+            <img src="assets/img/logo.png" alt="logo frog Math4You">
+            <button class="login-button">Sign-up</button>
         </div>
     </header>
     <main>
@@ -33,6 +31,32 @@
         </div>
 
         <div class="wrapper">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext"></div>
+                    <img src="../test1/assets/img/maths.jpeg" style="width:100%">
+                    <div class="text"></div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext"></div>
+                    <img src="../test1/assets/img/lets_learn_math.jpeg" style="width:100%">
+                    <div class="text"></div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+            <script src="style.js"></script>
+
+            <h2 class="h2">Check these games</h2>
+
             <div class="cont">
                 <div class="learn_add">
                     <a href="addition/addition.html">
@@ -70,29 +94,80 @@
             </div>
         </div>
     </main>
+
     <footer>
-        <div class="wrapper">
+        <div class="wrapper_footer">
             <div class="info">
-                <h3>Math4You, where math is fun!</h3>
-                <p> Math4You offers online games to make learning a lot easier and fun. Children from the age of 4 to 9
-                    can
-                    practice their skills. Learning math is a crucial step to learning succes.
-                    <br>
-                    <br>
-                    Give your child a head start for more advanced math practice by showing them that they can actually
-                    enjoy solving equations! Forget the boring math lessons and show them that even math can be fun.
-                    Whether
-                    your little learner is just starting to recognise numbers, count , etc.
-                    <br>
-                    <br>
-                    Get them started with a subject they are already familiar with. Once their minds are warmed up and
-                    their
-                    basic skills sharpened, challenge them to with something harder. You might be surprised at how
-                    quickly
-                    your child can learn while they're focused on winning the game!
-                </p>
+                <h3>Get the latest updates</h3>
+                <p> Enter your email to hear about new games and exclusive offers</p>
+            </div>
+
+            <div class="content">
+                <form class="subscription">
+                    <input class="add-email" type="email" placeholder="Your email...">
+                    <button class="submit-email" type="button">
+                        <span class="before-submit">Subscribe</span>
+                        <span class="after-submit">Thank you for subscribing!</span>
+                    </button>
+                </form>
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="footer__addr">
+                <div class="footer__logo">
+                    <img src="../test1/assets/img/logo.png" alt="" srcset="" width="100px">
+                </div>
+
+                <h2>Contact</h2>
+                <address>
+                    Brussels, Belgium
+
+                    <a class="footer__btn" href="mailto:math4you@gmail.com">Email Us</a>
+                </address>
+            </div>
+
+            <ul class="footer__nav">
+                <li class="nav__item">
+                    <h2 class="nav__title">Math4you</h2>
+
+                    <ul class="nav__ul">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Curriculum</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav__item">
+                    <h2 class="nav__title">Features</h2>
+
+                    <ul class="nav__ul">
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">Classroom</a></li>
+                        <li><a href="#">Individual Plans</a></li>
+                        <li><a href="#">Group Plans</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav__item">
+                    <h2 class="nav__title">Support</h2>
+
+                    <ul class="nav__ul">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="legal">
+                <p>&copy; 2022 All rights reserved to no one at all.</p>
+                <div class="legal__links">
+                    <span>Made with <span class="heart">♥</span></span>
+                </div>
+            </div>
+        </footer>
     </footer>
 
     <!-- Don't touch this -->
