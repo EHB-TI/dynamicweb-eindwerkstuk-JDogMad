@@ -398,6 +398,26 @@ body::-webkit-scrollbar {
         justify-content: space-between;
     }
 
+    .visits h2 {
+        margin-top: 50px;
+
+        text-align: center;
+
+        font-family: 'Concert one', cursive;
+        font-size: 30px;
+        color: var(--orange-main);
+    }
+
+    .visits span {
+        margin-top: 50px;
+
+        text-align: center;
+
+        font-family: 'Concert one', cursive;
+        font-size: 30px;
+        color: var(--orange-main);
+    }
+
     footer {
         background-color: var(--orange-lighters);
     }
