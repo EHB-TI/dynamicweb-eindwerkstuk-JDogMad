@@ -1,5 +1,28 @@
 //ADDITION
 
+// START PAGE
+window.onload = function toggleStartPage() {
+    let startpage = document.getElementById('start_page');
+    let gamepage = document.getElementById('game_page');
+
+    function showPage() {
+        startpage.style.display = "block";
+        gamepage.style.display = "none";
+    }
+
+    function hidePage() {
+        document.getElementById('start').addEventListener('click', function () {
+            console.log("button works");
+            startpage.style.display = "none";
+            gamepage.style.display = "block";
+        });
+    }
+
+    showPage();
+    hidePage();
+}
+
+
 // enkele variablenen initializeren
 let score = 0;
 let plays = 10;
@@ -102,11 +125,36 @@ function keepPlays() {
     plays--;
 
     if (plays == 0) {
+        stopTheGame();
+
         console.log("Game has ended");
         console.log(score);
     } else {}
 }
 
+//Stops the game and show score board
+function stopTheGame() {
+    let endpage = document.getElementById('end_page');
+    let gamepage = document.getElementById('game_page');
+    let endscore = document.getElementById('end_score');
+
+    function showEndPage() {
+        endpage.style.display = "block";
+        gamepage.style.display = "none";
+    }
+
+    function hideEndPage() {
+        document.getElementById('start').addEventListener('click', function () {
+            console.log("button works");
+            endpage.style.display = "none";
+            gamepage.style.display = "none";
+        });
+    }
+
+    endscore.innerHTML = score;
+    showEndPage();
+    hideEndPage();
+}
 
 generateEquation();
 setDummyAnswers();
