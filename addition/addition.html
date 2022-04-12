@@ -39,19 +39,23 @@
             </div>
         </div>
         <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-        <div class="wrapper">
-            <div class="header">
-                <img src="../assets/img/Screenshot 2022-03-02 at 12.04.48.png" alt="logo frog Math4You">
-                <button class="login-button">Login</button>
+
+
+        <div class="game_page" id="game_page" style="display:none;">
+            <div class="wrapper">
+                <div class="header">
+                    <img src="../assets/img/Screenshot 2022-03-02 at 12.04.48.png" alt="logo frog Math4You">
+                    <button class="login-button">Login</button>
+                </div>
             </div>
-        </div>
-    </header>
-    <div class="sub_header">
-        <h2 class="sub_title">Game of additions</h2>
-    </div>
-    <main>
-        <div class="equation">
-            <!-- <div class="difficulty">
+            <header>
+                <div class="sub_header">
+                    <h2 class="sub_title">Game of additions</h2>
+                </div>
+            </header>
+            <main>
+                <div class="equation">
+                    <!-- <div class="difficulty">
             <select
                 onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                 <option value="">Choose your difficulty: </option>
@@ -61,25 +65,81 @@
                 <option value="">Legend</option>
             </select> 
         </div> -->
-            <div class="addition">
-                <p id="num1"></p>
-                <p>+</p>
-                <p id="num2"></p>
-                <p>=</p>
-                <p id="answer"></p>
-                <p>?</p>
-            </div>
+                    <div class="addition">
+                        <p id="num1"></p>
+                        <p>+</p>
+                        <p id="num2"></p>
+                        <p>=</p>
+                        <p id="answer"></p>
+                        <p>?</p>
+                    </div>
 
-            <div class="wrapper">
-                <div class="answer_options">
-                    <button id="opt1">1</button>
-                    <button id="opt2">2</button>
-                    <button id="opt3">3</button>
+                    <div class="wrapper">
+                        <div class="answer_options">
+                            <button id="opt1">1</button>
+                            <button id="opt2">2</button>
+                            <button id="opt3">3</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </main>
+            <footer class="footer">
+                <div class="footer__addr">
+                    <div class="footer__logo">
+                        <img src="../assets/img/logo.png" alt="" srcset="" width="100px">
+                    </div>
+
+                    <h2>Contact</h2>
+                    <address>
+                        Brussels, Belgium
+
+                        <a class="footer__btn" href="mailto:math4you@gmail.com">Email Us</a>
+                    </address>
+                </div>
+
+                <ul class="footer__nav">
+                    <li class="nav__item">
+                        <h2 class="nav__title">Math4you</h2>
+
+                        <ul class="nav__ul">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Curriculum</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav__item">
+                        <h2 class="nav__title">Features</h2>
+
+                        <ul class="nav__ul">
+                            <li><a href="#">Games</a></li>
+                            <li><a href="#">Classroom</a></li>
+                            <li><a href="#">Individual Plans</a></li>
+                            <li><a href="#">Group Plans</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav__item">
+                        <h2 class="nav__title">Support</h2>
+
+                        <ul class="nav__ul">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="legal">
+                    <p>&copy; 2022 All rights reserved to no one at all.</p>
+                    <div class="legal__links">
+                        <span>Made with <span class="heart">♥</span></span>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </main>
-    <script src="addition.js"></script>
+        <script src="addition.js"></script>
 </body>
 
 </html>
