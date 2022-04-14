@@ -1,7 +1,18 @@
 /* ALGEMEEN */
-
 body {
     margin: 0 auto;
+    padding: 0;
+
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
 }
 
 :root {
@@ -13,6 +24,15 @@ body {
     --white: #FFF;
     --black: #000000;
 }
+
+/* font-family: 'Erica One', cursive;
+font-family: 'Modak', cursive; 
+font-family: 'Akshar', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Concert one', cursive;
+font-family: 'Rubik', sans-serif;
+*/
+
 
 /* xxxxxxxxxxxxxx STARTPAGE xxxxxxxxxxxxxxxxxx */
 .wrapper_page {
@@ -29,40 +49,111 @@ body {
 }
 
 .wrapper_page h2 {
-    font-family: 'Concert one', cursive;
-    font-size: 30px;
-
+    font-family: 'Erica One', cursive;
+    font-size: 50px;
     color: var(--white);
-
     text-align: center;
 }
 
 .wrapper_page p {
     margin-left: 100px;
 
-    font-family: 'Rubik', sans-serif;
-    font-size: 20px;
+    font-family: 'Passion One', cursive;
+    font-size: 30px;
 
     color: var(--white);
 }
 
 .wrapper_page #start {
+    border: var(--orange-main) solid 2px;
+    border-radius: 10px;
+
+    background-color: var(--white);
+    height: 50px;
+    width: 150px;
+
     margin-left: 100px;
 
+    font-family: 'Passion One', cursive;
+    font-size: 20px;
+    color: var(--orange-main);
+}
+
+.wrapper_page #start:hover {
+    background-color: var(--orange-main);
+    color: var(--white);
+}
+
+.gameover_page h2 {
+    font-family: 'Erica One', cursive;
+    font-size: 150px;
+}
+
+#extra_info {
+    margin-top: -150px;
+
+    font-family: 'Passion One', cursive;
+    font-size: 50px;
+
+    text-align: center;
+}
+
+#score {
+    font-family: 'Passion One', cursive;
+    font-size: 40px;
+}
+
+#highscore {
+    margin-top: -30px;
+
+    font-family: 'Passion One', cursive;
+    font-size: 40px;
+}
+
+#continue {
+    border: var(--orange-main) solid 2px;
+    border-radius: 10px;
+
+    background-color: var(--white);
     height: 50px;
     width: 100px;
 
-    border: none;
-    border-radius: 5px;
+    margin-left: 100px;
 
-    font-family: 'Concert one', cursive;
-    font-size: 19px;
-    color: #fff;
-    background-color: var(--orange-main);
-
-    display: flex;
-    justify-content: end;
+    font-family: 'Passion One', cursive;
+    font-size: 20px;
+    color: var(--orange-main);
 }
+
+#continue:hover {
+    background-color: var(--orange-main);
+    color: var(--white);
+}
+
+#exit {
+    border: var(--orange-main) solid 2px;
+    border-radius: 10px;
+
+    background-color: var(--white);
+    height: 50px;
+    width: 100px;
+}
+
+#exit:hover {
+    background-color: var(--orange-main);
+}
+
+#exit a {
+    font-family: 'Passion One', cursive;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--orange-main);
+}
+
+#exit a:hover {
+    color: var(--white);
+}
+
 
 /* HEADER */
 .wrapper {
@@ -76,6 +167,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    color: var(--orange-lighter);
 }
 
 .header img {
@@ -108,7 +201,6 @@ body {
 }
 
 /* MAIN */
-
 .addition {
     display: flex;
     justify-content: center;
@@ -124,11 +216,6 @@ body {
     justify-content: center;
 
 }
-
-/* .difficulty {
-    display: flex;
-    justify-content: center; 
-} */
 
 main {
     background-color: var(--orange-light);
@@ -306,5 +393,26 @@ main {
 
     .footer__nav {
         flex: 2 0px;
+    }
+}
+
+
+@media (min-width: 320px) {
+    body {
+        background-color: var(--orange-light);
+    }
+
+    .wrapper_page h2 {
+        font-family: 'Erica One', cursive;
+        font-size: 20px;
+        color: var(--white);
+
+    }
+
+    .wrapper_page p {
+        font-family: 'Passion One', cursive;
+        font-size: 20px;
+
+        color: var(--white);
     }
 }

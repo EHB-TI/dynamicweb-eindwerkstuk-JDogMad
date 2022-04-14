@@ -1,5 +1,13 @@
 //ADDITION
 
+// enkele variablenen initializeren
+let score = 0;
+let highscore = localStorage.getItem('highscore_add');
+let plays = 10;
+let dummyAnswer1, dummyAnswer2
+let answer, opt1, opt2, opt3, num1, num2;
+let arr = [];
+
 // START PAGE
 window.onload = function toggleStartPage() {
     let startpage = document.getElementById('start_page');
@@ -21,14 +29,6 @@ window.onload = function toggleStartPage() {
     showPage();
     hidePage();
 }
-
-
-// enkele variablenen initializeren
-let score = 0;
-let plays = 10;
-let dummyAnswer1, dummyAnswer2
-let answer, opt1, opt2, opt3, num1, num2;
-let arr = [];
 
 // Randomizer --> geeft een random getal tussen twee gekozen getallen. 
 function randomizer(min, max) {
@@ -56,8 +56,8 @@ function generateEquation() {
 // Daarna een array met 3 mogelijke antwoorden, met de for-loop kan je het randomizen 
 // nadien zetten we de waarden terug naar html.
 function setDummyAnswers() {
-    dummyAnswer1 = randomizer(0, 20);
-    dummyAnswer2 = randomizer(0, 20);
+    dummyAnswer1 = randomizer(0, 10);
+    dummyAnswer2 = randomizer(0, 10);
 
     arr = [dummyAnswer1, dummyAnswer2, answer];
     for (let i = 0; i < arr.length; i++) {
@@ -76,15 +76,19 @@ function checkForGoodAnswer() {
             console.log("gud");
 
             score++;
-
+            document.getElementById('wrong_answer').style.display = "none";
             generateEquation();
             setDummyAnswers();
             keepPlays();
         } else {
             console.log("wrong");
+            document.getElementById('wrong_answer').style.display = "block";
 
             score--;
+
         }
+
+
     })
 
     document.getElementById("opt2").addEventListener("click", function () {
@@ -93,14 +97,20 @@ function checkForGoodAnswer() {
 
             score++;
 
+            document.getElementById('wrong_answer').style.display = "none";
             generateEquation();
             setDummyAnswers();
             keepPlays();
+
         } else {
             console.log("wrong");
+            document.getElementById('wrong_answer').style.display = "block";
 
             score--;
+
         }
+
+
     })
 
     document.getElementById("opt3").addEventListener("click", function () {
@@ -108,15 +118,19 @@ function checkForGoodAnswer() {
             console.log("gud");
 
             score++;
-
+            document.getElementById('wrong_answer').style.display = "none";
             generateEquation();
             setDummyAnswers();
             keepPlays();
         } else {
             console.log("wrong");
+            document.getElementById('wrong_answer').style.display = "block";
 
             score--;
+
         }
+
+
     })
 }
 
@@ -125,11 +139,57 @@ function keepPlays() {
     plays--;
 
     if (plays == 0) {
-        stopTheGame();
+        localStorage.setItem('score_add', score);
 
         console.log("Game has ended");
         console.log(score);
-    } else {}
+
+        if (score > highscore) highscore = score;
+        localStorage.setItem('highscore_add', highscore);
+
+        // extra info with score
+        switch (score) {
+            case 0:
+                document.getElementById('extra_info').innerHTML = "Try again";
+                break;
+            case 1:
+                document.getElementById('extra_info').innerHTML = "Try again";
+                break;
+            case 2:
+                document.getElementById('extra_info').innerHTML = "Try again";
+                break;
+            case 3:
+                document.getElementById('extra_info').innerHTML = "Try again";
+                break;
+            case 4:
+                document.getElementById('extra_info').innerHTML = "Try again";
+                break;
+            case 5:
+                document.getElementById('extra_info').innerHTML = "You somehow did it!";
+                break;
+            case 6:
+                document.getElementById('extra_info').innerHTML = "Good job";
+                break;
+            case 7:
+                document.getElementById('extra_info').innerHTML = "Good job";
+                break;
+            case 8:
+                document.getElementById('extra_info').innerHTML = "Good job";
+                break;
+            case 9:
+                document.getElementById('extra_info').innerHTML = "You were so close!";
+                break;
+            case 10:
+                document.getElementById('extra_info').innerHTML = "You are a smart Cookie";
+                break;
+            default:
+                document.getElementById('extra_info').innerHTML = "Sorry, there must be an error"
+                break;
+        }
+
+
+        stopTheGame()
+    }
 }
 
 //Stops the game and show score board
@@ -137,6 +197,7 @@ function stopTheGame() {
     let endpage = document.getElementById('end_page');
     let gamepage = document.getElementById('game_page');
     let endscore = document.getElementById('end_score');
+    let high_score = document.getElementById('high_score');
 
     function showEndPage() {
         endpage.style.display = "block";
@@ -152,6 +213,7 @@ function stopTheGame() {
     }
 
     endscore.innerHTML = score;
+    high_score.innerHTML = highscore;
     showEndPage();
     hideEndPage();
 }
