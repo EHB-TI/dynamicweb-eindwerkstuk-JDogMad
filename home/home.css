@@ -126,7 +126,6 @@ body::-webkit-scrollbar {
     /* Credits:  https://www.w3schools.com/howto/howto_js_slideshow.asp */
     .slideshow-container {
         max-width: 750px;
-        height: 500px;
         position: relative;
         margin: auto;
     }
@@ -139,7 +138,7 @@ body::-webkit-scrollbar {
     .next {
         cursor: pointer;
         position: absolute;
-        top: 20%;
+        top: 50%;
         width: auto;
         margin-top: -22px;
         padding: 16px;
@@ -159,16 +158,6 @@ body::-webkit-scrollbar {
     .prev:hover,
     .next:hover {
         background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8px 12px;
-        position: absolute;
-        bottom: 8px;
-        width: 100%;
-        text-align: center;
     }
 
     .dot {
@@ -205,8 +194,6 @@ body::-webkit-scrollbar {
     /* END CAROUSEL */
 
     .h2 {
-        margin-top: 50px;
-
         text-align: center;
 
         font-family: 'Concert one', cursive;
