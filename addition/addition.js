@@ -9,9 +9,11 @@ let answer, opt1, opt2, opt3, num1, num2;
 let arr = [];
 
 // START PAGE
+// on window reload, omdat de button anders te veel tijd nam en deze moest telkens gebeuren
+// wanneer men de page refreshed en dus voor alle andere functies
 window.onload = function toggleStartPage() {
-    let startpage = document.getElementById('start_page');
-    let gamepage = document.getElementById('game_page');
+    const startpage = document.getElementById('start_page');
+    const gamepage = document.getElementById('game_page');
 
     function showPage() {
         startpage.style.display = "block";
@@ -30,12 +32,15 @@ window.onload = function toggleStartPage() {
     hidePage();
 }
 
+
+
+// MAIN PAGE
 // Randomizer --> geeft een random getal tussen twee gekozen getallen. 
 function randomizer(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// getCalculating --> doet de bewerking en returnd de antwoord
+// getCalculating --> doet de bewerking en returnd het antwoord
 function getCalculating(int1, int2) {
     return int1 + int2;
 }
@@ -135,6 +140,9 @@ function checkForGoodAnswer() {
 }
 
 // keepPlays --> telt af, en eindigt het spel. 
+// Wanneer de plays = 0 dan wordt de score gezet aan score 
+//  en wordt ook de highscore geintializeerd
+//  als extra wordt er telkens een message output
 function keepPlays() {
     plays--;
 
@@ -147,20 +155,11 @@ function keepPlays() {
         if (score > highscore) highscore = score;
         localStorage.setItem('highscore_add', highscore);
 
-        // extra info with score
         switch (score) {
             case 0:
-                document.getElementById('extra_info').innerHTML = "Try again";
-                break;
             case 1:
-                document.getElementById('extra_info').innerHTML = "Try again";
-                break;
             case 2:
-                document.getElementById('extra_info').innerHTML = "Try again";
-                break;
             case 3:
-                document.getElementById('extra_info').innerHTML = "Try again";
-                break;
             case 4:
                 document.getElementById('extra_info').innerHTML = "Try again";
                 break;
@@ -168,11 +167,7 @@ function keepPlays() {
                 document.getElementById('extra_info').innerHTML = "You somehow did it!";
                 break;
             case 6:
-                document.getElementById('extra_info').innerHTML = "Good job";
-                break;
             case 7:
-                document.getElementById('extra_info').innerHTML = "Good job";
-                break;
             case 8:
                 document.getElementById('extra_info').innerHTML = "Good job";
                 break;
@@ -186,13 +181,17 @@ function keepPlays() {
                 document.getElementById('extra_info').innerHTML = "Sorry, there must be an error"
                 break;
         }
-
-
         stopTheGame()
     }
 }
 
-//Stops the game and show score board
+
+
+
+// END PAGE (GAME OVER)
+//Stopt de game en toont een soort game over pagina 
+//toont de score als de highscore en dan 
+// geeft het men 3 keuzes; continue, replay en exit
 function stopTheGame() {
     let endpage = document.getElementById('end_page');
     let gamepage = document.getElementById('game_page');

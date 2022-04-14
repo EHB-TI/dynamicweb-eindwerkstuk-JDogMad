@@ -1,4 +1,12 @@
-// SLIDESHOW
+// Using CountAPI
+// Counts how many times the website has been clicked on
+function websiteVisits(response) {
+    document.querySelector("#visits").innerHTML = response.value;
+}
+
+
+
+// SLIDESHOW --> fully copied as it was for decoration (https://www.w3schools.com/howto/howto_js_slideshow.asp )
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -28,9 +36,4 @@ function showSlides(n) {
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
-}
-
-// Using CountAPI
-function websiteVisits(response) {
-    document.querySelector("#visits").innerHTML = response.value;
 }
