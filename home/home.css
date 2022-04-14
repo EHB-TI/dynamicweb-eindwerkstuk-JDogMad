@@ -23,6 +23,9 @@ body::-webkit-scrollbar {
     --orange-lighter: rgb(240 173 96 / 11%);
     --orange-lighters: rgba(255, 136, 0, 0.733);
 
+    --green-main: #bad47e;
+    --green-light: #bad47ea2;
+
     --white: #FFF;
     --black: #000000;
 }
@@ -56,9 +59,73 @@ body::-webkit-scrollbar {
 /* MEDIA QUERY --> min 320px */
 @media (min-width: 320px) {
 
-    /* carousel -->  https://www.w3schools.com/howto/howto_js_slideshow.asp */
+    /* DISPLAY NONE */
+    .warning {
+        display: none;
+    }
+
+    .more {
+        display: none;
+    }
+
+    .space {
+        display: none;
+    }
+
+    /* ======================== HEADER ==========================*/
+    .wrapper {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: var(--green-light);
+    }
+
+    .header img {
+        height: 100px;
+    }
+
+    .header button {
+        margin-right: 20px;
+
+        height: 50px;
+        width: 100px;
+
+        border: none;
+        border-radius: 5px;
+
+        font-family: 'Concert one', cursive;
+        font-size: 19px;
+        color: #fff;
+        background-color: var(--orange-main);
+    }
+
+    .header button:hover {
+        background-color: var(--orange-dark);
+    }
+
+    .intro .intro_title {
+        text-align: center;
+
+        font-family: 'Concert one', cursive;
+        font-size: 30px;
+        color: var(--orange-main);
+
+        margin-bottom: -50px;
+    }
+
+    /* ============================= MAIN ============================= */
+    /* Credits:  https://www.w3schools.com/howto/howto_js_slideshow.asp */
     .slideshow-container {
         max-width: 750px;
+        height: 500px;
         position: relative;
         margin: auto;
     }
@@ -71,7 +138,7 @@ body::-webkit-scrollbar {
     .next {
         cursor: pointer;
         position: absolute;
-        top: 50%;
+        top: 20%;
         width: auto;
         margin-top: -22px;
         padding: 16px;
@@ -134,65 +201,7 @@ body::-webkit-scrollbar {
         }
     }
 
-    .warning {
-        display: none;
-    }
-
-    .more {
-        display: none;
-    }
-
-    .space {
-        display: none;
-    }
-
-    .wrapper {
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-    }
-
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background-color: var(--orange-lighters);
-    }
-
-    .header img {
-        height: 100px;
-    }
-
-    .header button {
-        margin-right: 20px;
-
-        height: 50px;
-        width: 100px;
-
-        border: none;
-        border-radius: 5px;
-
-        font-family: 'Concert one', cursive;
-        font-size: 19px;
-        color: #fff;
-        background-color: var(--orange-main);
-    }
-
-    .header button:hover {
-        background-color: var(--orange-dark);
-    }
-
-    .intro .intro_title {
-        text-align: center;
-
-        font-family: 'Concert one', cursive;
-        font-size: 30px;
-        color: var(--orange-main);
-
-        margin-bottom: -50px;
-    }
+    /* END CAROUSEL */
 
     .h2 {
         margin-top: 50px;
@@ -221,7 +230,7 @@ body::-webkit-scrollbar {
     }
 
     .learn_add:hover {
-        background-color: var(--orange-light);
+        background-color: var(--green-light);
     }
 
     .learn_add .add {
@@ -266,7 +275,7 @@ body::-webkit-scrollbar {
     }
 
     .learn_sub:hover {
-        background-color: var(--orange-light);
+        background-color: var(--green-light);
     }
 
     .learn_sub .sub {
@@ -311,7 +320,7 @@ body::-webkit-scrollbar {
     }
 
     .learn_div:hover {
-        background-color: var(--orange-light);
+        background-color: var(--green-light);
     }
 
     .learn_div .div {
@@ -356,7 +365,7 @@ body::-webkit-scrollbar {
     }
 
     .learn_mul:hover {
-        background-color: var(--orange-light);
+        background-color: var(--green-light);
     }
 
     .learn_mul .mul {
@@ -398,6 +407,11 @@ body::-webkit-scrollbar {
         justify-content: space-between;
     }
 
+    .visits {
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
     .visits h2 {
         margin-top: 50px;
 
@@ -418,11 +432,21 @@ body::-webkit-scrollbar {
         color: var(--orange-main);
     }
 
-    footer {
-        background-color: var(--orange-lighters);
+    .ads {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-left: 50px;
+        margin-right: 50px;
     }
 
-    /* https://codepen.io/tudorworks/pen/GRmpNWe */
+    /* ===================== FOOTER ===================== */
+    footer {
+        background-color: var(--green-light);
+    }
+
+    /* Credits: https://codepen.io/tudorworks/pen/GRmpNWe */
     .content {
         margin-top: 50px;
 
@@ -509,7 +533,7 @@ body::-webkit-scrollbar {
 
         font-family: 'Concert One', sans-serif;
         font-size: 30px;
-        color: var(--white);
+        color: var(--orange-main);
 
         margin-bottom: 0;
     }
@@ -517,10 +541,10 @@ body::-webkit-scrollbar {
     .info p {
         font-family: 'Open Sans', sans-serif;
         font-size: 18px;
-        color: var(--white);
+        color: var(--orange-dark);
     }
 
-    /* footer style --> https://codepen.io/matheusalmeida/pen/aeLMMr?page=2 */
+    /* Credits: https://codepen.io/matheusalmeida/pen/aeLMMr?page=2 */
     .footer {
         display: flex;
         flex-flow: row wrap;
@@ -654,6 +678,9 @@ body::-webkit-scrollbar {
     }
 }
 
+
+
+/* MEDIA QUERY --> min 481px */
 @media (min-width: 481px) {
     .warning {
         display: none;
@@ -668,6 +695,8 @@ body::-webkit-scrollbar {
     }
 }
 
+
+/* MEDIA QUERY --> min 769px */
 @media (min-width: 769px) {
     .warning {
         display: none;
@@ -732,6 +761,9 @@ body::-webkit-scrollbar {
     }
 }
 
+
+
+/* MEDIA QUERY --> min 1025px */
 @media (min-width: 1025px) {
     .warning {
         display: none;
