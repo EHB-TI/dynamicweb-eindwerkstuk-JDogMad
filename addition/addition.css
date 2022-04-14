@@ -263,6 +263,10 @@ main {
     color: var(--white);
 }
 
+.space {
+    height: 300px;
+}
+
 /* https://codepen.io/matheusalmeida/pen/aeLMMr?page=2  */
 .footer {
     display: flex;
