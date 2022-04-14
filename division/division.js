@@ -32,7 +32,7 @@ window.onload = function toggleStartPage() {
 
 // Randomizer --> geeft een random getal tussen twee gekozen getallen. 
 function randomizer(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.ceil(Math.random() * (max - min + 1) + min);
 }
 
 // getCalculating --> doet de bewerking en returnd de antwoord
@@ -41,6 +41,9 @@ function getCalculating(int1, int2) {
         return int1 / int2;
     }
 
+    num1 = randomizer(0, 10) + 1;
+    num2 = randomizer(0, 10) + 1;
+    return getCalculating(num1, num2);
 }
 
 // generateEquation --> maakt twee getallen dmv de randomizer, haalt het antwoord van 
