@@ -3,6 +3,7 @@
 // enkele variablenen initializeren
 let score = 0;
 let highscore = localStorage.getItem('highscore_add');
+let continueGame = localStorage.getItem('continue');
 let plays = 10;
 let dummyAnswer1, dummyAnswer2
 let answer, opt1, opt2, opt3, num1, num2;
@@ -35,6 +36,10 @@ window.onload = function toggleStartPage() {
 
 
 // MAIN PAGE
+function resetScore() {
+    score = 0;
+}
+
 // Randomizer --> geeft een random getal tussen twee gekozen getallen. 
 function randomizer(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -81,13 +86,17 @@ function checkForGoodAnswer() {
             console.log("gud");
 
             score++;
+
             document.getElementById('wrong_answer').style.display = "none";
+            document.getElementById('wrong_answer_text').style.display = "none";
+
             generateEquation();
             setDummyAnswers();
             keepPlays();
         } else {
             console.log("wrong");
             document.getElementById('wrong_answer').style.display = "block";
+            document.getElementById('wrong_answer_text').style.display = "block";
 
             score--;
 
@@ -103,6 +112,8 @@ function checkForGoodAnswer() {
             score++;
 
             document.getElementById('wrong_answer').style.display = "none";
+            document.getElementById('wrong_answer_text').style.display = "none";
+
             generateEquation();
             setDummyAnswers();
             keepPlays();
@@ -110,9 +121,9 @@ function checkForGoodAnswer() {
         } else {
             console.log("wrong");
             document.getElementById('wrong_answer').style.display = "block";
+            document.getElementById('wrong_answer_text').style.display = "block";
 
             score--;
-
         }
 
 
@@ -123,13 +134,17 @@ function checkForGoodAnswer() {
             console.log("gud");
 
             score++;
+
             document.getElementById('wrong_answer').style.display = "none";
+            document.getElementById('wrong_answer_text').style.display = "none";
+
             generateEquation();
             setDummyAnswers();
             keepPlays();
         } else {
             console.log("wrong");
             document.getElementById('wrong_answer').style.display = "block";
+            document.getElementById('wrong_answer_text').style.display = "block";
 
             score--;
 
@@ -145,8 +160,10 @@ function checkForGoodAnswer() {
 //  als extra wordt er telkens een message output
 function keepPlays() {
     plays--;
+    if (score < 0) resetScore();
 
     if (plays == 0) {
+        localStorage.setItem('continue', false);
         localStorage.setItem('score_add', score);
 
         console.log("Game has ended");
@@ -181,8 +198,34 @@ function keepPlays() {
                 document.getElementById('extra_info').innerHTML = "Sorry, there must be an error"
                 break;
         }
+
         stopTheGame()
     }
+}
+
+
+function upTheNiveau() {
+    const continueButton = document.getElementById('continue');
+
+    continueButton.addEventListener('click', function () {
+        localStorage.setItem('continue', true);
+
+        if (continueGame == true) {
+
+            function generateEquation() {
+                num1 = randomizer(0, 50);
+                num2 = randomizer(0, 50);
+                answer = getCalculating(num1, num2)
+
+                document.getElementById("num1").innerHTML = num1;
+                document.getElementById("num2").innerHTML = num2;
+                document.getElementById("answer").innerHTML = answer;
+            }
+
+            resetScore();
+            generateEquation();
+        }
+    })
 }
 
 
@@ -220,3 +263,4 @@ function stopTheGame() {
 generateEquation();
 setDummyAnswers();
 checkForGoodAnswer();
+upTheNiveau();
