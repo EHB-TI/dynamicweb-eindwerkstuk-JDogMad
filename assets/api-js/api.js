@@ -16,5 +16,5 @@ window.onload = function callTheImage() {
                 if (counter > 3) return counter = 0;
             })
             .catch(err => console.log(err));
-    }, 7000);
+    }, 5000);
 }

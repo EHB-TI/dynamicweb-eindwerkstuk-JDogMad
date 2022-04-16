@@ -6,7 +6,19 @@ function websiteVisits(response) {
 
 
 
-// SLIDESHOW --> fully copied as it was for decoration (https://www.w3schools.com/howto/howto_js_slideshow.asp )
+// SLIDESHOW --> de mechanimse compleet veranderd allen het stukje van het fetchen is van mij (https://www.w3schools.com/howto/howto_js_slideshow.asp )
+// Dit stukje code is van mij !
+// Het fetchen van data op volgende host 
+fetch("http://localhost:3000/images")
+    .then(res => res.json())
+    .then(result => {
+        // een src geven adh van de imageURL van mijn api
+        img1.src = result[0].imageURL;
+        img2.src = result[2].imageURL;
+    })
+    .catch(err => console.log(err));
+
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
