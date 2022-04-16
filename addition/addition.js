@@ -3,7 +3,6 @@
 // enkele variablenen initializeren
 let score = 0;
 let highscore = localStorage.getItem('highscore_add');
-let continueGame = localStorage.getItem('continue');
 let plays = 10;
 let dummyAnswer1, dummyAnswer2
 let answer, opt1, opt2, opt3, num1, num2;
@@ -13,6 +12,8 @@ let arr = [];
 // on window reload, omdat de button anders te veel tijd nam en deze moest telkens gebeuren
 // wanneer men de page refreshed en dus voor alle andere functies
 window.onload = function toggleStartPage() {
+    // dit toont de startpagina bij het refreshen en 
+    // nadat men op start drukt verdwijnt het ook
     const startpage = document.getElementById('start_page');
     const gamepage = document.getElementById('game_page');
 
@@ -23,11 +24,14 @@ window.onload = function toggleStartPage() {
 
     function hidePage() {
         document.getElementById('start').addEventListener('click', function () {
+            // test purposes
             console.log("button works");
+
             startpage.style.display = "none";
             gamepage.style.display = "block";
         });
     }
+
 
     showPage();
     hidePage();
@@ -36,6 +40,8 @@ window.onload = function toggleStartPage() {
 
 
 // MAIN PAGE
+// Deze kleine functie is gwn om de score te resetten als het onder de gaat
+// Eens de speler meer fouten heeft dan het aantal spelen wordt het naar 0 gereset
 function resetScore() {
     score = 0;
 }
@@ -55,11 +61,27 @@ function getCalculating(int1, int2) {
 function generateEquation() {
     num1 = randomizer(0, 20);
     num2 = randomizer(0, 20);
+
     answer = getCalculating(num1, num2)
 
     document.getElementById("num1").innerHTML = num1;
     document.getElementById("num2").innerHTML = num2;
     document.getElementById("answer").innerHTML = answer;
+
+    // Als de continue in de localstorage gelijk staat aan true 
+    // dan wordt de num1 en num2 hun max waarde verhoogt 
+    // belangrijk op te merken is dat ik hier een stricte vergelijking maakt 
+    // omdat men in localstorages geen booleans kan opslaan
+    if (localStorage.getItem('continue_add') === 'true') {
+        num1 = randomizer(0, 20) + 30;
+        num2 = randomizer(0, 20) + 30;
+
+        answer = getCalculating(num1, num2)
+
+        document.getElementById("num1").innerHTML = num1;
+        document.getElementById("num2").innerHTML = num2;
+        document.getElementById("answer").innerHTML = answer;
+    }
 }
 
 // setDummyAnswers --> maakt twee dummy variabelen aan. 
@@ -80,9 +102,13 @@ function setDummyAnswers() {
 }
 
 // checkForGoodAnswer --> checkt op basis van een click of het de juiste antwoord is 
+// Als het goed is dan wordt er een nieuwe bewerking getoond 
+// Als het fout is dan toont men een text en een afbeelding en wordt de score vermindert
 function checkForGoodAnswer() {
+    // OPTIE 1
     document.getElementById("opt1").addEventListener("click", function () {
         if (document.getElementById("opt1").innerHTML == answer) {
+            // test purposes
             console.log("gud");
 
             score++;
@@ -94,18 +120,21 @@ function checkForGoodAnswer() {
             setDummyAnswers();
             keepPlays();
         } else {
+            // test purposes
             console.log("wrong");
+
             document.getElementById('wrong_answer').style.display = "block";
             document.getElementById('wrong_answer_text').style.display = "block";
 
             score--;
-
         }
 
-    })
+    });
 
+    // OPTIE 2
     document.getElementById("opt2").addEventListener("click", function () {
         if (document.getElementById("opt2").innerHTML == answer) {
+            // test purposes
             console.log("gud");
 
             score++;
@@ -118,7 +147,9 @@ function checkForGoodAnswer() {
             keepPlays();
 
         } else {
+            // test purposes
             console.log("wrong");
+
             document.getElementById('wrong_answer').style.display = "block";
             document.getElementById('wrong_answer_text').style.display = "block";
 
@@ -126,10 +157,12 @@ function checkForGoodAnswer() {
         }
 
 
-    })
+    });
 
+    // OPTIE 3
     document.getElementById("opt3").addEventListener("click", function () {
         if (document.getElementById("opt3").innerHTML == answer) {
+            // test purposes
             console.log("gud");
 
             score++;
@@ -141,35 +174,47 @@ function checkForGoodAnswer() {
             setDummyAnswers();
             keepPlays();
         } else {
+            // test purposes
             console.log("wrong");
+
             document.getElementById('wrong_answer').style.display = "block";
             document.getElementById('wrong_answer_text').style.display = "block";
 
             score--;
-
         }
-
-
-    })
+    });
 }
 
 // keepPlays --> telt af, en eindigt het spel. 
-// Wanneer de plays = 0 dan wordt de score gezet aan score 
-//  en wordt ook de highscore geintializeerd
-//  als extra wordt er telkens een message output
 function keepPlays() {
     plays--;
+
+    // Als de score onder de nul komt dan wordt de functie resetScore opgeroept
     if (score < 0) resetScore();
 
+    // Als de plays gelijk is aan 0, dan wordt het spel gestopt 
     if (plays == 0) {
+        // score wordt toegevoegd aan de localStorage
         localStorage.setItem('score_add', score);
 
+        // test purposes
         console.log("Game has ended");
         console.log(score);
 
+        // Als de score hoger is dan de opgeslagen score in de localstorage dan wordt het verandert
+        // ander niet 
         if (score > highscore) highscore = score;
         localStorage.setItem('highscore_add', highscore);
 
+        // Als men op de continue button drukt dan slaan we in de localstorage de waarde true in
+        // zodat eigenlijk de niveau hoger gaat
+        document.getElementById('continue').addEventListener('click', function () {
+            localStorage.setItem('continue_add', true);
+        });
+
+        // Dit dient eerder als een extra, feedback van mijn jongste zus was dat bij het afbeelden 
+        // van de score er een tekst moeest afgebeeld worden.
+        // Gemakkelijkste manier was door middel van een switch-case
         switch (score) {
             case 0:
             case 1:
@@ -197,9 +242,11 @@ function keepPlays() {
                 break;
         }
 
-        stopTheGame()
+        // Hier wordt de functie stopTheGame opgeroepen
+        stopTheGame();
     }
 }
+
 
 
 // END PAGE (GAME OVER)
@@ -219,7 +266,9 @@ function stopTheGame() {
 
     function hideEndPage() {
         document.getElementById('start').addEventListener('click', function () {
+            // test purposes
             console.log("button works");
+
             endpage.style.display = "none";
             gamepage.style.display = "none";
         });
@@ -229,8 +278,15 @@ function stopTheGame() {
     high_score.innerHTML = highscore;
     showEndPage();
     hideEndPage();
+
+    // Hier zetten we de continue button gelijk aan false 
+    // zodat bij eerste aanmelding de game gemakkelijk is en ook telkens als men klaar is 
+    // het weer op false staat 
+    localStorage.setItem('continue_add', false)
 }
 
+
+// Algemene functies die vooral nodig zijn bij het eerst openen van het spel
 generateEquation();
 setDummyAnswers();
 checkForGoodAnswer();
