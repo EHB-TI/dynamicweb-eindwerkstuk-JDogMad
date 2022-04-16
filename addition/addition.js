@@ -102,7 +102,6 @@ function checkForGoodAnswer() {
 
         }
 
-
     })
 
     document.getElementById("opt2").addEventListener("click", function () {
@@ -163,7 +162,6 @@ function keepPlays() {
     if (score < 0) resetScore();
 
     if (plays == 0) {
-        localStorage.setItem('continue', false);
         localStorage.setItem('score_add', score);
 
         console.log("Game has ended");
@@ -204,33 +202,6 @@ function keepPlays() {
 }
 
 
-function upTheNiveau() {
-    const continueButton = document.getElementById('continue');
-
-    continueButton.addEventListener('click', function () {
-        localStorage.setItem('continue', true);
-
-        if (continueGame == true) {
-
-            function generateEquation() {
-                num1 = randomizer(0, 50);
-                num2 = randomizer(0, 50);
-                answer = getCalculating(num1, num2)
-
-                document.getElementById("num1").innerHTML = num1;
-                document.getElementById("num2").innerHTML = num2;
-                document.getElementById("answer").innerHTML = answer;
-            }
-
-            resetScore();
-            generateEquation();
-        }
-    })
-}
-
-
-
-
 // END PAGE (GAME OVER)
 //Stopt de game en toont een soort game over pagina 
 //toont de score als de highscore en dan 
@@ -263,4 +234,3 @@ function stopTheGame() {
 generateEquation();
 setDummyAnswers();
 checkForGoodAnswer();
-upTheNiveau();

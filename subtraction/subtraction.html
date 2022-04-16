@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subtractions</title>
     <link rel="stylesheet" href="subtraction.css">
-    <link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/page-logo__1_-removebg-preview.png" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Permanent+Marker&display=swap"
@@ -27,13 +27,12 @@
 </head>
 
 <body>
-
     <header>
         <!-- Startpage gets toggled between none and block  -->
         <div id="start_page" style="display:none;">
             <div class="wrapper_page">
-                <h2>Welcome to Math4You</h2>
-                <p>Let's practice our additions.
+                <h2 id="h2_startpage">Welcome to Math4You</h2>
+                <p id="p_startpage">Let's practice our additions.
                     <br>
                     You will get a set of equation and 3 possibilities,
                     choose the correct.
@@ -42,19 +41,24 @@
             </div>
         </div>
         <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
         <!-- ScoreBoard gets toggled between none and block  -->
         <div id="end_page" style="display:none;">
             <div class="wrapper_page">
                 <div class="gameover_page">
-                    <h2>GAME OVER</h2>
+                    <h2 id="h2_endpage">GAME OVER</h2>
+                    <br>
                     <p id="extra_info"></p>
+                    <br>
                     <p id="score">Score: <span id="end_score">0</span> </p>
                     <p id="highscore">Highscore: <span id="high_score">0</span> </p>
                 </div>
-                <button id="continue">Continue</button>
+                <button id="replay"><a href="addition.html">Replay</a></button>
+                <button id="continue"><a href="../subtraction/subtraction.html">Continue</a></button>
                 <button id="exit"><a href="../index.html">Exit</a></button>
             </div>
         </div>
+
     </header>
     <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -67,16 +71,18 @@
             </div>
         </div>
 
-
-
-        <header>
+        <main>
+            <div class="space"></div>
             <div class="sub_header">
                 <h2 class="sub_title">Game of additions</h2>
+                <div class="space50"></div>
             </div>
-        </header>
 
-        <main>
             <div class="equation">
+                <div id="wrong_answer_text" style="display: none;">
+                    <p class="wrong"> Try again! </p>
+                </div>
+
                 <div class="addition">
                     <p id="num1"></p>
                     <p>-</p>
@@ -85,8 +91,9 @@
                     <p id="answer"></p>
                     <p>?</p>
 
+
                     <div id="wrong_answer" style="display: none;">
-                        <img src="../assets/img/rodekruis-removebg-preview.png" alt="" style="width: 100px;">
+                        <img src="../assets/img/icons8-close-100.png" alt="" style="width: 100px;">
                     </div>
                 </div>
 
@@ -97,6 +104,14 @@
                         <button id="opt3">3</button>
                     </div>
                 </div>
+            </div>
+            <div class="space"></div>
+            <div class="animetedGuy_talks">
+                <div class="speech-bubble">
+                    Choose the right one!
+                </div>
+                <img src="../assets/img/Weirdo.png" alt="" srcset="" style="width: 200px; height: 200px; margin-right: 20px;
+                        margin-left: -50px;">
             </div>
         </main>
 
@@ -157,7 +172,9 @@
         </footer>
     </div>
 
-
+    <div class="not_supported">
+        <p>This size is not yet supported</p>
+    </div>
     <!-- Script -->
     <script src="subtraction.js"></script>
 </body>
