@@ -514,6 +514,15 @@ main {
     }
 }
 
+@media (max-width: 1000px) {
+    .animetedGuy_talksEnd {
+        display: flex;
+        justify-content: end;
+
+        margin-top: 200px;
+    }
+}
+
 @media (max-width: 653px) {
     .not_supported {
         display: none;
