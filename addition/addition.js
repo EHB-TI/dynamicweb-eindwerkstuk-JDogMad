@@ -76,7 +76,7 @@ function generateEquation() {
         num1 = randomizer(0, 20) + 30;
         num2 = randomizer(0, 20) + 30;
 
-        answer = getCalculating(num1, num2)
+        answer = getCalculating(num1, num2);
 
         document.getElementById("num1").innerHTML = num1;
         document.getElementById("num2").innerHTML = num2;
@@ -212,42 +212,44 @@ function keepPlays() {
             localStorage.setItem('continue_add', true);
         });
 
-        // Dit dient eerder als een extra, feedback van mijn jongste zus was dat bij het afbeelden 
-        // van de score er een tekst moeest afgebeeld worden.
-        // Gemakkelijkste manier was door middel van een switch-case
-        switch (score) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                document.getElementById('extra_info').innerHTML = "Try again";
-                break;
-            case 5:
-                document.getElementById('extra_info').innerHTML = "You somehow did it!";
-                break;
-            case 6:
-            case 7:
-            case 8:
-                document.getElementById('extra_info').innerHTML = "Good job";
-                break;
-            case 9:
-                document.getElementById('extra_info').innerHTML = "You were so close!";
-                break;
-            case 10:
-                document.getElementById('extra_info').innerHTML = "You are a smart Cookie";
-                break;
-            default:
-                document.getElementById('extra_info').innerHTML = "Sorry, there must be an error"
-                break;
-        }
-
+        // Hier wordt de functie showExtraMessage opgeroepen
+        showExtraMessage();
         // Hier wordt de functie stopTheGame opgeroepen
         stopTheGame();
     }
 }
 
-
+// Dit dient eerder als een extra, feedback van mijn jongste zus was dat bij het afbeelden 
+// van de score er een tekst moeest afgebeeld worden.
+// Gemakkelijkste manier was door middel van een switch-case
+function showExtraMessage() {
+    switch (score) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            document.getElementById('extra_info').innerHTML = "Try again";
+            break;
+        case 5:
+            document.getElementById('extra_info').innerHTML = "You somehow did it!";
+            break;
+        case 6:
+        case 7:
+        case 8:
+            document.getElementById('extra_info').innerHTML = "Good job";
+            break;
+        case 9:
+            document.getElementById('extra_info').innerHTML = "You were so close!";
+            break;
+        case 10:
+            document.getElementById('extra_info').innerHTML = "You are a smart Cookie";
+            break;
+        default:
+            document.getElementById('extra_info').innerHTML = "Sorry, there must be an error"
+            break;
+    }
+}
 
 // END PAGE (GAME OVER)
 //Stopt de game en toont een soort game over pagina 
