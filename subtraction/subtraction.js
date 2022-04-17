@@ -86,7 +86,7 @@ function generateEquation() {
 // Daarna een array met 3 mogelijke antwoorden, met de for-loop kan je het randomizen 
 // nadien zetten we de waarden terug naar html.
 function setDummyAnswers() {
-    dummyAnswer1 = randomizer(-5, 10);
+    dummyAnswer1 = randomizer(-5, 15);
     dummyAnswer2 = randomizer(-5, 10);
 
     arr = [dummyAnswer1, dummyAnswer2, answer];

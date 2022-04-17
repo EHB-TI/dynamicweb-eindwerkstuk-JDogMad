@@ -90,8 +90,8 @@ function generateFullEquation() {
 }
 
 function setDummyAnswers() {
-    dummyAnswer1 = randomizer(0, 10);
-    dummyAnswer2 = randomizer(0, 10);
+    dummyAnswer1 = randomizer(0, 20);
+    dummyAnswer2 = randomizer(0, 30);
 
     arr = [dummyAnswer1, dummyAnswer2, answer];
     for (let i = 0; i < arr.length; i++) {
